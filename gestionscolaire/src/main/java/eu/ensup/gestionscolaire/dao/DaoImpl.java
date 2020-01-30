@@ -126,9 +126,9 @@ public class DaoImpl implements IDao {
 		// TODO Auto-generated method stub
 		emf = Persistence.createEntityManagerFactory("gestionscolaire");
 		em = emf.createEntityManager();
-		Query req = em.createQuery(
-				"select gest from Gestionnaire gest where login =" + login + " and where password = " + pwd);
-		if (req.executeUpdate() > 0) {
+		Query req = em
+				.createQuery("select gest from Gestionnaire gest where login =" + login + " and password = " + pwd);
+		if (req.getFirstResult() == 0) {
 			return true;
 		} else {
 			return false;
