@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import eu.ensup.gestionscolaire.domaine.Gestionnaire;
 import eu.ensup.gestionscolaire.service.GestionnaireService;
 
 /**
@@ -41,7 +43,11 @@ public class GestionnaireServlet extends HttpServlet {
 		RequestDispatcher dispatcher;
 		String login = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(login);
+
+		Gestionnaire gest = new Gestionnaire(login, password);
+		HttpSession masession = request.getSession();
+		masession.setAttribute("gestionnaire", gest);
+
 		if (service.seConnecter(login, password) == true) {
 			System.out.println("bienvenue");
 			response.sendRedirect("accueil.jsp");
