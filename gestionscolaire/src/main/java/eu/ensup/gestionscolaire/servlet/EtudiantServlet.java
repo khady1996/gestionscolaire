@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import eu.ensup.gestionscolaire.domaine.Etudiant;
 import eu.ensup.gestionscolaire.service.GestionnaireService;
@@ -39,8 +40,17 @@ public class EtudiantServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		List<Etudiant> result = service.listerTousEtudiants();
-		this.forwardListEtudiants(request, response, result);
+		System.out.println(result);
 
+		// 1.
+
+		HttpSession masession = request.getSession();
+		masession.setAttribute("etudiantList", result);
+
+		String nextJSP = "/accueil.jsp";
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(nextJSP);
+		// this.forwardListEtudiants(request, response, result);
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -52,14 +62,6 @@ public class EtudiantServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		this.doGet(request, response);
-	}
-
-	private void forwardListEtudiants(HttpServletRequest req, HttpServletResponse resp, List etudiantList)
-			throws ServletException, IOException {
-		String nextJSP = "/error.jsp";
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(nextJSP);
-		req.setAttribute("etudiantList", etudiantList);
-		dispatcher.forward(req, resp);
 	}
 
 }

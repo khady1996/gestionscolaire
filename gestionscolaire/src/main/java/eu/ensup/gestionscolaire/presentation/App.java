@@ -17,5 +17,6 @@ public class App {
 //		service.creerCours(c1);
 //		service.associerEtudiantCours(etu, c1);
 		System.out.println(service.listerTousEtudiants());
+
 	}
 }
