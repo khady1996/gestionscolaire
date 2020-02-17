@@ -16,5 +16,6 @@ public class App {
 //		Cours c1 = new Cours("GTM", 200);
 //		service.creerCours(c1);
 //		service.associerEtudiantCours(etu, c1);
+
 	}
 }
