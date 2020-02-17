@@ -40,16 +40,15 @@
 					id="navbarDropdownMenuLink" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false"> Menu étudiant </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Lister étudiants</a> <a
-							class="dropdown-item" href="#">Info étudiant</a> <a
-							class="dropdown-item" href="#">Supprimer un étudiant</a> <a
-							class="dropdown-item" href="#">Modifier un étudiant</a> <a
-							class="dropdown-item" href="AddClientServlet?id=${id}">Ajouter
-							un étudiant</a> <a class="dropdown-item" href="#">Rajouter un
-							étudiant à un cours</a>
+						<a class="dropdown-item" href="#">Lister l'ensemble des étudiants de l'école</a> 
+						<a class="dropdown-item" href="lireEtudiant.jsp">Lire les informations d'un étudiant</a> 
+						<a class="dropdown-item" href="supprimerEtudiant.jsp">Supprimer un étudiant</a> 
+						<a class="dropdown-item" href="modifierEtudiant.jsp">Modifier une des informations sur l'étudiant</a> 
+						<a class="dropdown-item" href="creerEtudiant.jsp">Créer un étudiant</a> 
+						<a class="dropdown-item" href="suivreCours.jsp">Associer un cours à un étudiant</a>
 					</div></li>
 				<li class="nav-item active" style="padding-right: 10px"><a
-					class="nav-link" href="index.jsp">Déconnexion <span
+					class="nav-link" href="login.jsp">Déconnexion <span
 						class="sr-only">(current)</span></a></li>
 			</ul>
 		</div>

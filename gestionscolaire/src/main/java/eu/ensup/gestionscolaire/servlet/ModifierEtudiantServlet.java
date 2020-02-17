@@ -1,31 +1,27 @@
 package eu.ensup.gestionscolaire.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import eu.ensup.gestionscolaire.domaine.Etudiant;
 import eu.ensup.gestionscolaire.service.GestionnaireService;
 
 /**
- * Servlet implementation class EleveServlet
+ * Servlet implementation class ModifierEtudiant
  */
-@WebServlet("/listEtudiants")
-public class EtudiantServlet extends HttpServlet {
+public class ModifierEtudiantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	GestionnaireService service = new GestionnaireService();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EtudiantServlet() {
+	public ModifierEtudiantServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -39,18 +35,16 @@ public class EtudiantServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		List<Etudiant> result = service.listerTousEtudiants();
-		System.out.println(result);
 
-		// 1.
+		// 1
 
+		boolean modification = service.modifierEtudiant(null);// etudiant
 		HttpSession masession = request.getSession();
-		masession.setAttribute("etudiantList", result);
-
+		masession.setAttribute("modifEtudiant", modification);
 		// 2
+
 		String nextJSP = "/accueil.jsp";
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher(nextJSP);
-
 		// 3
 		dispatcher.forward(request, response);
 	}
