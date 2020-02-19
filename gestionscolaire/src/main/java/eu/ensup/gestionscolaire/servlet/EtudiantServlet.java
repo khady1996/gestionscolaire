@@ -53,6 +53,8 @@ public class EtudiantServlet extends HttpServlet {
 
 		// 3
 		dispatcher.forward(request, response);
+		System.out.println(request.getRequestDispatcher(nextJSP));
+
 	}
 
 	/**
