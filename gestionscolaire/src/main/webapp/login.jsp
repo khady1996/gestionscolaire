@@ -8,7 +8,7 @@
 <title>Authentification</title>   
 </head>
    
-<form method="post" action="Accueil">
+<form method="post" action="listEtudiants">
 	<center>
 		<table border="0" width="30%" cellpadding="3">
 			<thead>
