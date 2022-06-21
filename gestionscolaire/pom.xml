@@ -15,7 +15,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<junit.version>4.12</junit.version>
-		<mysql.version> 8.0.18 </mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 		<servlet.version>3.1.0</servlet.version>
 		<servlet.api.version>2.3.1</servlet.api.version>
 		<jstl.version>1.2</jstl.version>
